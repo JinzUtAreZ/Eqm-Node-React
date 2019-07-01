@@ -1,0 +1,21 @@
+{
+  "name": "eqm-node-react",
+  "version": "1.0.0",
+  "description": "test node with sql",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Mathew Uy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mssql": "^5.1.0",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.1"
+  }
+}

@@ -1,9 +1,10 @@
 import React from 'react';
+import Tbl from '../layout/TableData';
 
 const Home = () => {
   return (
     <div>
-      <h2>FUCKER ASS</h2>
+      <Tbl />
     </div>
   );
 };

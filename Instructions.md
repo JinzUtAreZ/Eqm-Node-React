@@ -1,71 +1,48 @@
-#Setup IIS Configuration server
-https://github.com/azure/iisnode/wiki/iisnode-releases
+#Step by Step Instruction
+#Project pointers
 
-#Watch videos and read blogs
-https://harveywilliams.net/blog/installing-iisnode
-https://www.youtube.com/watch?v=JUYCDnqR8p0
+1. npm init ====== create predefined package.json
+2. npm i express mssql
+   a. express === server
+   b. mssql === database used
+3. dev dependencies installation:
+   npm i -D nodemon concurrently
+   a. nodemon === automatic restart of server
+   b. concurrently === run front backend server simultaneously
+4. run server using nodemon for automatic refresh using package.json
+   npm run server
+5. POSTMAN when posting data
+   input middleware ===> app.use(express.json({ extended: false}));
+   in app select "Headers" = "Content-Type" = "application/json"
+   in body input json data ===>
+   {
+   "name": "John Doe",
+   "email": "epal@gmail.com",
+   "password": "1234"
+   }
+6. jwt.io check data sent using encoded token
+7. POSTMAN Header tab input key = x-auth-token; Content-Type
+   value = token after user has logged in; application/json
+8. PUT request: input url with ID to be updated;
+   { name: "update_name", others: "other_fields"}
 
-#Download IIS Configuration server
-#Url Rewrite
-https://www.iis.net/downloads/microsoft/url-rewrite
-#Request Routing
-https://www.iis.net/downloads/microsoft/application-request-routing
+#CREATE FRONT END
 
-#Webconfig in Node (Server)
-<configuration>
-<system.webServer>
+1. npx create-react-app client
+2. In server package.json
+   "client": "npm start --prefix client",
+   "clientinstall": "npm install --prefix client",
+   "dev": "concurrently \"npm run server\" \"npm run client\""
+3. In client package.json
+   "proxy": "http://localhost:5000"
+4. remove .gitignore, Readme.md
+5. npm i axios react-router-dom uuid react-transition-group
 
-        <!-- indicates that the server.js file is a node.js application
-        to be handled by the iisnode module -->
+# Guide to snippets
 
-        <handlers>
-            <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
-        </handlers>
+1. https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
 
-        <rewrite>
-            <rules>
-                <rule name="sendToNode">
-                    <match url="/*" />
-                    <action type="Rewrite" url="server.js" />
-                </rule>
-            </rules>
-        </rewrite>
-    </system.webServer>
+#USE MATERIAL UI
 
-</configuration>
-
-#Webconfig in React (Application/Website) // put in public folder
-
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <rule name="Static Assets" stopProcessing="true">
-          <match url="([\S]+[.](html|htm|svg|js|css|png|gif|jpg|jpeg))" />
-          <action type="Rewrite" url="/{R:1}"/>
-        </rule>
-        <rule name="ReactRouter Routes" stopProcessing="true">
-          <match url=".*" />
-          <conditions logicalGrouping="MatchAll">
-            <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
-            <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
-          </conditions>
-          <action type="Rewrite" url="/index.html" />
-        </rule>
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-
-#Publish in Node doing IIS
-
-1. create webconfig in root folder and copy codes for NODE above
-2. set folder security to everyone
-3. in IIS config manager set Sites -> Add Web Sites -> folder location
-
-#Publish in React doing IIS
-
-1. create webconfig in public folder and copy codes for REACT above.
-2. go to REACT root folder, type in TERMINAL npm run build
-3. in IIS config manager set Sites -> Add Web Sites -> go to BUILD folder location.
+1. npm install @material-ui/core, npm install @material-ui/icons
+2. https://reactgo.com/material-ui-react-tutorial/

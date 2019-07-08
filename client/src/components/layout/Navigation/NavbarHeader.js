@@ -6,25 +6,25 @@ import NavbarPerMenu from './NavbarPerMenu';
 import ACircleIcon from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    flexGrow: 1
-  }
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     flexGrow: 1
+//   },
+//   menuButton: {
+//     marginRight: theme.spacing(2)
+//   },
+//   title: {
+//     flexGrow: 1
+//   }
+// }));
 
 const NavbarHeader = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <Fragment>
       <AppBar color="primary" position="static">
@@ -33,7 +33,7 @@ const NavbarHeader = () => {
             <MenuIcon />
           </IconButton>
 
-          <TypoGraphy variant="title" color="inherit">
+          <TypoGraphy variant="h6" color="inherit">
             Information
           </TypoGraphy>
           <List component="nav">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Tbl from '../layout/TableData';
+import Tbl from '../layout/Tables/TableData';
 
 const Home = () => {
   return (

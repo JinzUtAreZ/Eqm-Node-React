@@ -21,13 +21,15 @@ class MenuButton extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
+    //const { classes } = this.props;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
     const Wrapper = this.props.iconType;
     const NavName = this.props.NavName;
-    const listItems = this.props.items.map(link => (
-      <MenuItem onClick={this.handleClose}>{link}</MenuItem>
+    const listItems = this.props.items.map((link, index) => (
+      <MenuItem key={index} onClick={this.handleClose}>
+        {link}
+      </MenuItem>
     ));
 
     return (

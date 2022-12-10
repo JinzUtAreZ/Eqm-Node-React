@@ -14,7 +14,7 @@
   "author": "Mathew Uy",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mssql": "^5.1.0",
     "concurrently": "^4.1.0",
     "nodemon": "^1.19.1"
